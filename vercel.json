@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/developer",
+      "destination": "/api/developer"
+    }
+  ]
+}

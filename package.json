@@ -1,0 +1,16 @@
+{
+  "name": "suftty-site",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --env-file=.env server.js",
+    "start": "node --env-file=.env server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0"
+  }
+}
