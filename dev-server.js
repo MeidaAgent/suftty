@@ -144,8 +144,8 @@ const server = http.createServer(async (req, res) => {
     pathname = "/index.html";
   }
 
-  const safePath = path.normalize(path.join(__dirname, pathname));
-  if (!safePath.startsWith(__dirname)) {
+  const safePath = path.normalize(path.join(__dirname, "public", pathname));
+  if (!safePath.startsWith(path.join(__dirname, "public"))) {
     res.statusCode = 403;
     return res.end("Access Denied");
   }
