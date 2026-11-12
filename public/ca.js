@@ -98,7 +98,7 @@ function initHeroCa(caAddress) {
 
     setupCopyAction(heroCopyBtn, () => heroAddressEl.textContent, heroStatus, heroBtnText);
   } else {
-    heroAddressEl.textContent = "CA belum diatur (atur di /developer)";
+    heroAddressEl.textContent = "-";
     if (heroCopyBtn) {
       heroCopyBtn.disabled = true;
       heroCopyBtn.style.cursor = "not-allowed";
@@ -139,7 +139,7 @@ function mountBottomCaSection(caAddress) {
   const addressElement = makeElement(
     "code",
     "min-w-0 flex-1 break-words text-[12px] text-text2",
-    valid ? caAddress : "CA belum diatur",
+    valid ? caAddress : "-",
   );
   addressElement.id = "ca-address";
   addressElement.setAttribute("aria-live", "polite");
