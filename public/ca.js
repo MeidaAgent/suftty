@@ -9,9 +9,9 @@ function makeElement(tagName, className, text) {
   return element;
 }
 
-async function fetchCaAddress() {
+async function fetchJsonCa(url) {
   try {
-    const response = await fetch("/api/ca", { cache: "no-store" });
+    const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("CA could not be loaded");
     }
@@ -20,9 +20,14 @@ async function fetchCaAddress() {
       ? caAddress.trim()
       : null;
   } catch (error) {
-    console.error("Error loading CA:", error);
+    console.error("Error loading CA from " + url + ":", error);
     return null;
   }
+}
+
+// Primary: /api/ca (set via /developer). Fallback: /ca.json (edit in GitHub).
+async function fetchCaAddress() {
+  return (await fetchJsonCa("/api/ca")) || (await fetchJsonCa("/ca.json"));
 }
 
 function setupCopyAction(button, getText, statusElement, buttonTextElement) {
