@@ -160,8 +160,18 @@ function mountBottomCaSection(caAddress) {
   statusElement.id = "ca-status";
   statusElement.setAttribute("role", "status");
 
+  const buyLink = makeElement(
+    "a",
+    "",
+    "Buy $SUFTTY ↗",
+  );
+  buyLink.style.cssText = "display:flex;align-items:center;justify-content:center;width:100%;height:40px;margin-top:12px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-size:12px;font-weight:600;text-decoration:none;";
+  buyLink.href = "https://ponsfamily.com/launchpad/0xd7df49ff44c1c281f935b9e1d42d0280af6eef6d";
+  buyLink.target = "_blank";
+  buyLink.rel = "noreferrer";
+
   card.append(addressElement, copyButton);
-  section.append(card, statusElement);
+  section.append(card, statusElement, buyLink);
   footer.parentElement.insertBefore(section, footer);
 
   if (valid) {
